@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./config/PrivateRoute";
 import { AuthContext, RolesContext } from "./config/Auth";
 
+
 function App() {
   const [login, setLogin] = useState(false)
   const [role, setRole] = useState()
