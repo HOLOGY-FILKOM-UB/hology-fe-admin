@@ -15,7 +15,7 @@ export const Buttons = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   min-width: 200px;
-  margin-bottom: 2rem;
+  margin: 1rem 1rem 2rem 1rem;
 
   color: ${palette.secondaryColor};
   background-color: ${palette.primaryColor};

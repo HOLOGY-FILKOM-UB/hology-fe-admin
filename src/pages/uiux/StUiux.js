@@ -28,3 +28,12 @@ export const Table = styled.table`
     max-width: 1rem;
   }
 `;
+
+export const Paragraph = styled.h1`
+  font-size: ${palette.paragraph};
+  cursor: pointer;
+  transition: 300ms;
+  &:hover {
+    color: ${palette.primaryColor};
+  }
+`;

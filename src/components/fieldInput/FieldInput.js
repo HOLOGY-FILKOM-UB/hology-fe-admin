@@ -1,12 +1,12 @@
 import React from "react";
 import {Wrapper, Label, Input} from './StFieldInput'
 
-const FieldInput = ({ handleChange, label, ...props }) => {
+const FieldInput = ({ handleChange, label, placeHolder = "ketik di sini...", ...props }) => {
   return (
     <Wrapper>
       <Label>{label}</Label>
       <Input
-        placeholder="ketik di sini..."
+        placeholder={placeHolder}
         onChange={handleChange}
         {...props}
       />
