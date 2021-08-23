@@ -4,34 +4,36 @@ import Button from "../../components/button/Button";
 import {Buttons, Title, Wrapper} from './StLogin'
 import { AuthContext, RolesContext } from "../../config/Auth";
 import { useHistory, Redirect } from "react-router";
+import Api from "../../config/Api";
 
 const Login = () => {
-  const [email, setEmail] = useState()
-  const [password, setPassword] = useState()
+  const [credentials, setCredentials] = useState({
+    email: '',
+    password: '',
+  })
   const [login, setLogin] = useContext(AuthContext)
   const [role, setRole] = useContext(RolesContext)
   const history = useHistory()
 
-  const validateLogin = (email, password) => {
-    if (email === "a" && password === "a") {
+  const validateLogin = () => {
+    Api.post('/api/admin/signin/', credentials)
+    .then(res => {
+      console.log(res)
       setLogin(true)
       setRole("Sekben")
-      history.push('/')
-    } else if (email === "a" && password === "b") {
-      setLogin(true)
-      setRole("Inti")
-      history.push('/')
-    } else {
-      alert("Email atau Password Salah!")
-    }
+    })
+    .catch(e => {
+      // console.log(e)
+      alert('Email / Password yang dimasukkan salah!')
+    }) 
   }
 
   return (
     <Wrapper>
       <Title>Competition Panel</Title>
-      <FieldInput label="Email" type="email" handleChange={(e) => {setEmail(e.target.value)}} />
-      <FieldInput label="Password" type="text" handleChange={(e) => {setPassword(e.target.value)}} />
-      <Button content="Login" variant="primary" onClicked={() => validateLogin(email, password)}/>
+      <FieldInput label="Email" type="email" handleChange={e => setCredentials({...credentials, email: e.target.value})} />
+      <FieldInput label="Password" type="text" handleChange={(e) => setCredentials({...credentials, password: e.target.value})} />
+      <Button content="Login" variant="primary" onClicked={e => {validateLogin()}}/>
     </Wrapper>
   );
 };
