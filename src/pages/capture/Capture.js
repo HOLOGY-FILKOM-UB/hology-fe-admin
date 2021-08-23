@@ -1,11 +1,13 @@
-import React, {useContext, useState, useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import userLogin from "../../api/index";
 import { AuthContext, RolesContext } from "../../config/Auth";
 import { Table, Wrapper, Text, Buttons } from "./StCapture";
 import axios from 'axios'
+import CheckSession from "../../config/CheckSession";
 
-const Button = ({ content, variant="primary", onClicked }) => {
+import { useHistory, Redirect } from "react-router";
+const Button = ({ content, variant = "primary", onClicked }) => {
   return (
     <Buttons onClick={onClicked} variant={variant}>
       {content}
@@ -68,19 +70,26 @@ export const data = [
 const Capture = () => {
   const [role, setRole] = useContext(RolesContext)
   const temporaryRole = "CTF"
-
+  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924");
+  let roles = String(localStorage.getItem("h0_sd8h28jeas6das6d8ddf"));
+  const history = useHistory()
   useEffect(() => {
-    userLogin.get("/api/users/")
-    .then(res => {
-        console.log(res.data)
-    })
-    .catch(err => {
-        console.log(err)
-    })
-  }, [])
+    if (parsedJsonData) {
+      userLogin.get("/api/teams/")
+        .then(res => {
+          console.log(res.data)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+      
+    } else {
+      history.push("/login");
+      window.location.reload()
+    }
+  },[])
 
-  console.log(role)
-  if (role === "Sekben") {
+  if (roles === '"GOD"') {
     return (
       <Wrapper>
         <Text>Competition</Text>
@@ -94,7 +103,7 @@ const Capture = () => {
             <th>TEAM INFO</th>
             <th>SUBMISSION</th>
           </tr>
-          {data.map((item, index)=> {
+          {data.map((item, index) => {
             let verifColor = item.action === "Verified" ? 'green' : 'red'
             let compeRole = temporaryRole
 
@@ -102,15 +111,15 @@ const Capture = () => {
               return (
                 <tr key={index}>
                   <td width="3%">{item.id}</td>
-                  <td style = {{ backgroundColor: verifColor }}>VERIF / UNVERIF / DELETE</td>
+                  <td style={{ backgroundColor: verifColor }}>VERIF / UNVERIF / DELETE</td>
                   <td>{item.teamName}</td>
                   <td width="15%">{item.competition}</td>
                   <td>{item.institution}</td>
                   <td>{item.teamInfo.map((anggota) => {
-                    return(
+                    return (
                       <div>
                         {anggota}
-                        <br/>
+                        <br />
                       </div>
                     )
                   })}</td>
@@ -119,13 +128,14 @@ const Capture = () => {
                 </tr>
               )
             }
-            
-          }) 
+
+          })
           }
         </Table>
       </Wrapper>
     );
   } else {
+    
     return (
       <Wrapper>
         <Text>Capture the Flag</Text>
@@ -139,7 +149,7 @@ const Capture = () => {
             <th>TEAM INFO</th>
             <th>SUBMISSION</th>
           </tr>
-          {data.map((item, index)=> {
+          {data.map((item, index) => {
             return (
               <tr key={index}>
                 <th width="3%">{item.id}</th>
@@ -148,17 +158,17 @@ const Capture = () => {
                 <th width="15%">{item.competition}</th>
                 <th>{item.institution}</th>
                 <th>{item.teamInfo.map((anggota) => {
-                  return(
+                  return (
                     <div>
                       {anggota}
-                      <br/>
+                      <br />
                     </div>
                   )
                 })}</th>
                 <th>No Action Allowed</th>
               </tr>
             )
-          }) 
+          })
           }
         </Table>
       </Wrapper>

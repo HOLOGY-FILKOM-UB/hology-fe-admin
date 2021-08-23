@@ -5,7 +5,19 @@ import * as palette from "../../style/Palette";
 export const Wrapper = styled.div`
   margin-bottom: 2rem;
 `;
+export const Wrapper2 = styled.div`
+  margin-bottom: 2rem;
+  display:flex;
+`;
 
+export const Label2 = styled.label`
+  display: block;
+  color: #303030;
+  font-weight: ${palette.semiBold};
+  margin-bottom: 0.75rem;
+  margin-right: 0.75rem;
+  font-size: ${palette.headerS};
+`;
 export const Label = styled.label`
   display: block;
   color: #303030;

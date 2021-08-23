@@ -7,6 +7,7 @@ import Capture from "../capture/Capture";
 import Compro from "../compro/Compro";
 import Uiux from "../uiux/Uiux";
 import Webinar from "../webinar/Webinar";
+import Workshop from "../workshop/workshop";
 import { RolesContext } from "../../config/Auth";
 
 const Admin = () => {
@@ -16,14 +17,15 @@ const Admin = () => {
       <GlobalStyle />
       <RolesContext.Provider value={[role, setRole]}>
         <Wrapper>
-          {/* <Navbar />
+          <Navbar />
           <Switch>      
             <Route path="/ctf" component={Capture} />
             <Route path="/cp" component={Compro} />
             <Route path="/uiux" component={Uiux} />
             <Route path="/webinar" component={Webinar} />
-          </Switch> */}
-          <Capture />
+            <Route path="/workshop" component={Workshop} />
+          </Switch>
+          {/* <Capture /> */}
         </Wrapper>
       </RolesContext.Provider>
     </Router>
