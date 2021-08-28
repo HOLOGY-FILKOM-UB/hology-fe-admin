@@ -15,7 +15,7 @@ const Webinar = () => {
           <th>INSTITUTION</th>
           <th>ATTENDED</th>
         </tr>
-        {/* {data.map((item, index) => {
+        {data.map((item, index) => {
           return (
             <tr key={index}>
               <th>{item.id}</th>
@@ -27,7 +27,7 @@ const Webinar = () => {
               <th>{item.submission}</th>
             </tr>
           );
-        })} */}
+        })}
       </Table>
     </Wrapper>
   );

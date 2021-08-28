@@ -6,5 +6,5 @@ export const NavbarData = [
   { title: "Webinar",
     path: "/web" },
   { title: "Workshop",
-    path: "/ws" },
+    path: "/workshop" },
 ];
