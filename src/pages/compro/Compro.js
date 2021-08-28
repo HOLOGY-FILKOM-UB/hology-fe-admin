@@ -4,7 +4,6 @@ import {data} from '../capture/Capture'
 import CheckSession from "../../config/CheckSession";
 
 const Compro = () => {
-  CheckSession()
   return (
     <Wrapper>
       <Text>Competitive Programming</Text>
