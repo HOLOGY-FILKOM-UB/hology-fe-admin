@@ -16,14 +16,14 @@ function App() {
     <Router>
       <GlobalStyle />
       {/* <Navbar /> */}
-      <Switch>
-        <AuthContext.Provider value={[login, setLogin]}>
-          <RolesContext.Provider value={[role, setRole]}>
+      <AuthContext.Provider value={[login, setLogin]}>
+        <RolesContext.Provider value={[role, setRole]}>
+          <Switch>
             <Route path="/login" component={Login} />
             <Route path="/" component={Admin} />
-          </RolesContext.Provider>
-        </AuthContext.Provider>
-      </Switch>
+          </Switch>
+        </RolesContext.Provider>
+      </AuthContext.Provider>
     </Router>
   );
 }
