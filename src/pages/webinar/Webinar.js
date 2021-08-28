@@ -4,37 +4,6 @@ import Api from "../../config/Api";
 import { FieldInputWebinar } from "../../components/fieldInput/FieldInput";
 import { useHistory, Redirect } from "react-router";
 
-
-const data = [
-  {
-    id: 1,
-    user_fullname: "Dewi Ayu",
-    email: "dewi@gmail.com",
-    status: 1
-  },
-  {
-    id: 2,
-    user_fullname: "Ayu Purnama",
-    email: "ayu@gmail.com",
-    status: 2
-  }
-]
-
-const data2 = [
-  {
-    id: 1,
-    user_fullname: "Dewi Ayu",
-    email: "dewi@gmail.com",
-    status: 0
-  },
-  {
-    id: 2,
-    user_fullname: "Ayu Purnama",
-    email: "ayu@gmail.com",
-    status: 1
-  }
-]
-
 const Webinar = () => {
   
   const history = useHistory()
@@ -43,43 +12,39 @@ const Webinar = () => {
 
   useEffect(() => {
     if (parsedJsonData) {
-      setResult(data)
+      Api.get("/api/users/")
+        .then(res => {
+          setResult(res.data.message)
+        })
+        .catch(err => {
+          console.log(err)
+        })
     } else {
       history.push("/login");
       window.location.reload()
     }
   }, [])
 
-  const UpdateCredential = (id) => {
-    if (id == 1) {
-      setResult(data)
-    }
-    else {
-      setResult(data2)
-    }
-  }
   var rows = [];
   for (var i = 0; i < result.length; i++) {
-    rows.push(result[i]);
+    if(result[i].user_register_in_webinar == 1) rows.push(result[i]);
   }
+
   return (
     <Wrapper>
-      <Text>WEBINAR ATTENDANCE</Text>
-      <FieldInputWebinar style={{display : 'inline-block'}} label="Webinar Day" type="radio" handleChange={e => { UpdateCredential(e.target.value); }}></FieldInputWebinar >
+      <Text>WEBINAR</Text>
       <Table>
         <tr>
           <th>ID</th>
           <th>NAME</th>
           <th>EMAIL</th>
-          <th>ATTENDED</th>
         </tr>
         {rows.map((item, index) => {
           return (
             <tr key={index}>
-              <th>{item.id}</th>
+              <th>{item.user_id}</th>
               <th>{item.user_fullname}</th>
-              <th>{item.email}</th>
-              <th>{item.status == 1 ? "Hadir" : "Tidak Daftar"}</th>
+              <th>{item.user_email}</th>
             </tr>
           );
         })}
