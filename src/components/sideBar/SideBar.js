@@ -1,10 +1,24 @@
 import React from "react";
 
 export const NavbarData = [
-  { title: "Competition",
-    path: "/comp" },
-  { title: "Webinar",
-    path: "/web" },
-  { title: "Workshop",
-    path: "/workshop" },
+  {
+    title: "Competition",
+    path: "/ctf"
+  },
+  // {
+  //   title: "Competitive Programming",
+  //   path: "/cp"
+  // },
+  // {
+  //   title: "UI/UX",
+  //   path: "/uiux"
+  // },
+  {
+    title: "Webinar",
+    path: "/webinar"
+  },
+  {
+    title: "Workshop",
+    path: "/workshop"
+  },
 ];

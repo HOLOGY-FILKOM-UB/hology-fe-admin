@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import GlobalStyle from "../../style/GlobalStyle";
 import Navbar from "../../components/navbar/Navbar";
@@ -9,9 +9,21 @@ import Uiux from "../uiux/Uiux";
 import Webinar from "../webinar/Webinar";
 import Workshop from "../workshop/workshop";
 import { RolesContext } from "../../config/Auth";
+import CheckSession from "../../config/CheckSession";
+import { useHistory, Redirect } from "react-router";
+
+
 
 const Admin = () => {
+  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924");
+  const history = useHistory()
+  useEffect(() => {
+    if (!parsedJsonData) {
+      history.push("/login")
+    }
+  },[])
   const [role, setRole] = useContext(RolesContext)
+  console.log(role)
   return (
     <Router>
       <GlobalStyle />
@@ -25,7 +37,6 @@ const Admin = () => {
             <Route path="/webinar" component={Webinar} />
             <Route path="/workshop" component={Workshop} />
           </Switch>
-          {/* <Capture /> */}
         </Wrapper>
       </RolesContext.Provider>
     </Router>

@@ -92,7 +92,7 @@ const Capture = () => {
   if (roles === '"GOD"') {
     return (
       <Wrapper>
-        <Text>Competition</Text>
+        <Text>COMPETITION</Text>
         <Table>
           <tr>
             <th width="5%">ID</th>

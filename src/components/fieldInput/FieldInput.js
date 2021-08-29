@@ -14,7 +14,7 @@ const FieldInput = ({ handleChange, label, ...props }) => {
   );
 };
 
-const FieldInput2 = ({ handleChange, label, ...props }) => {
+const FieldInputWorkshop = ({ handleChange, label, ...props }) => {
   return (
     <Wrapper>
       <Label>JENIS WORKSHOP</Label>
@@ -22,7 +22,6 @@ const FieldInput2 = ({ handleChange, label, ...props }) => {
       <Wrapper2>
         <Label2>{label} 1</Label2>
         <Input name="workshop" value="1" defaultChecked
-          placeholder="ketik di sini..."
           onChange={handleChange}
           {...props}
         />
@@ -30,7 +29,6 @@ const FieldInput2 = ({ handleChange, label, ...props }) => {
       <Wrapper2>
         <Label2>{label} 2</Label2>
         <Input name="workshop" value="2"
-          placeholder="ketik di sini..."
           onChange={handleChange}
           {...props}
         />
@@ -40,4 +38,27 @@ const FieldInput2 = ({ handleChange, label, ...props }) => {
   );
 };
 
-export { FieldInput, FieldInput2 }
+const FieldInputWebinar = ({ handleChange, label, ...props }) => {
+  return (
+    <Wrapper>
+      <Label>JENIS WEBINAR</Label>
+      <center>
+      <Wrapper2>
+        <Label2>{label} 1</Label2>
+        <Input name="webinar" value="1" defaultChecked
+          onChange={handleChange}
+          {...props}
+        />
+      </Wrapper2>
+      <Wrapper2>
+        <Label2>{label} 2</Label2>
+        <Input name="webinar" value="2"
+          onChange={handleChange}
+          {...props}
+        />
+      </Wrapper2>
+      </center>
+    </Wrapper>
+  );
+};
+export { FieldInput, FieldInputWorkshop, FieldInputWebinar }
