@@ -14,7 +14,6 @@ function App() {
 
   return (
       <GlobalStyle />
-      {/* <Navbar /> */}
       <AuthContext.Provider value={[login, setLogin]}>
         <RolesContext.Provider value={[role, setRole]}>
           <Switch>
