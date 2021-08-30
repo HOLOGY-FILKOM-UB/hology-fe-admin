@@ -13,7 +13,6 @@ function App() {
   const [role, setRole] = useState()
 
   return (
-    <Router>
       <GlobalStyle />
       {/* <Navbar /> */}
       <AuthContext.Provider value={[login, setLogin]}>
@@ -24,7 +23,6 @@ function App() {
           </Switch>
         </RolesContext.Provider>
       </AuthContext.Provider>
-    </Router>
   );
 }
 
