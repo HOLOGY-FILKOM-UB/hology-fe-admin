@@ -15,8 +15,10 @@ const Login = () => {
   useEffect(() => {
     if (parsedJsonData) {
       history.push("/")
+      window.location.reload()
     } else {
       history.push("/login")
+      // window.location.reload()
     }
   },[])
 

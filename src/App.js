@@ -13,9 +13,10 @@ function App() {
   const [role, setRole] = useState()
 
   return (
-      <GlobalStyle />
+      
       <AuthContext.Provider value={[login, setLogin]}>
         <RolesContext.Provider value={[role, setRole]}>
+        <GlobalStyle/>
           <Switch>
             <Route path="/login" component={Login} />
             <Route path="/" component={Admin} />
