@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, HashRouter, Route, Switch } from "react-router-dom";
 import GlobalStyle from "../../style/GlobalStyle";
 import Navbar from "../../components/navbar/Navbar";
 import { Buttons, Wrapper } from "./StAdmin";
@@ -22,15 +22,13 @@ const Admin = () => {
       history.push("/login")
     }
   },[])
-  const [role, setRole] = useContext(RolesContext)
-  console.log(role)
   return (
-    <Router>
+    <>
       <GlobalStyle />
-      <RolesContext.Provider value={[role, setRole]}>
         <Wrapper>
           <Navbar />
-          <Switch>      
+          <Switch>     
+             
             <Route path="/ctf" component={Capture} />
             <Route path="/cp" component={Compro} />
             <Route path="/uiux" component={Uiux} />
@@ -38,8 +36,7 @@ const Admin = () => {
             <Route path="/workshop" component={Workshop} />
           </Switch>
         </Wrapper>
-      </RolesContext.Provider>
-    </Router>
+    </>
   );
 };
 

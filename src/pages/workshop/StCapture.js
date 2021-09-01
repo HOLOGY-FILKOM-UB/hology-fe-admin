@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   padding-right: 2rem;
   width: 100%;
   min-width: 768px;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

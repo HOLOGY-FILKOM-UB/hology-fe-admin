@@ -21,10 +21,15 @@ const Capture = () => {
   let roles = String(localStorage.getItem("h0_sd8h28jeas6das6d8ddf"));
   const history = useHistory()
   const [result, setResult] = useState({})
+  const [token, setToken] = useState(localStorage.getItem("h0_ni128ehiond1289n"))
 
   useEffect(() => {
     if (parsedJsonData) {
-      Api.get("/api/admin/users/workshop/" + 1)
+      Api.get("/api/admin/users/workshop/" + 1,{
+        headers: {
+          "Authorization": "Bearer "+ token
+        }
+      })
         .then(res => {
           setResult(res.data.message)
         })
@@ -38,7 +43,11 @@ const Capture = () => {
   }, [])
 
   const UpdateCredential = (id) => {
-    Api.get("/api/admin/users/workshop/" + id)
+    Api.get("/api/admin/users/workshop/" + id,{
+      headers: {
+        "Authorization": "Bearer "+ token
+      }
+    })
       .then(res => {
         setResult(res.data.message)
       })
@@ -46,9 +55,14 @@ const Capture = () => {
         console.log(err)
       })
   }
+
   const UpdateUserStatus = (id, ws_id, workshop_statuss) => {
     Api.post("/api/admin/users/workshop/update/" + id + "/" + ws_id, {
       workshop_status: workshop_statuss, // This is the body part
+    },{
+      headers: {
+        "Authorization": "Bearer " + token
+      }
     })
       .then(res => {
         window.location.reload()

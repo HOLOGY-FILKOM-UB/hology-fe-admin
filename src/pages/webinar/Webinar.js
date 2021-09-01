@@ -5,14 +5,19 @@ import { FieldInputWebinar } from "../../components/fieldInput/FieldInput";
 import { useHistory, Redirect } from "react-router";
 
 const Webinar = () => {
-  
+  const [token, setToken] = useState(localStorage.getItem("h0_ni128ehiond1289n"))
   const history = useHistory()
   let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924");
   const [result, setResult] = useState({})
 
   useEffect(() => {
     if (parsedJsonData) {
-      Api.get("/api/users/")
+      Api.get("/api/users/",
+      {
+        headers: {
+          "Authorization": "Bearer "+ token
+        }
+      })
         .then(res => {
           setResult(res.data.message)
         })

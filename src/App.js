@@ -4,6 +4,7 @@ import Login from "./pages/Login/Login";
 import GlobalStyle from "./style/GlobalStyle";
 import Navbar from "./components/navbar/Navbar";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import PrivateRoute from "./config/PrivateRoute";
 import { AuthContext, RolesContext } from "./config/Auth";
 import CheckSession from "./config/CheckSession";
@@ -13,6 +14,7 @@ function App() {
   const [role, setRole] = useState()
 
   return (
+    <>
       <GlobalStyle />
       <AuthContext.Provider value={[login, setLogin]}>
         <RolesContext.Provider value={[role, setRole]}>
@@ -22,6 +24,7 @@ function App() {
           </Switch>
         </RolesContext.Provider>
       </AuthContext.Provider>
+    </>
   );
 }
 
