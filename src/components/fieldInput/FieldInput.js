@@ -38,6 +38,43 @@ const FieldInputWorkshop = ({ handleChange, label, ...props }) => {
   );
 };
 
+const FieldInputWorkshop2 = ({ handleChange, label, ...props }) => {
+  return (
+    <Wrapper>
+      <Label>JENIS WORKSHOP</Label>
+      <center>
+      <Wrapper2>
+        <Label2>Semua</Label2>
+        <Input name="stat" value="1" defaultChecked
+          onChange={handleChange}
+          {...props}
+        />
+      </Wrapper2>
+      <Wrapper2>
+        <Label2>tidak terverif</Label2>
+        <Input name="stat" value="2"
+          onChange={handleChange}
+          {...props}
+        />
+      </Wrapper2>
+      <Wrapper2>
+        <Label2>tidak lulus</Label2>
+        <Input name="stat" value="3"
+          onChange={handleChange}
+          {...props}
+        />
+      </Wrapper2>
+      <Wrapper2>
+        <Label2>lulus</Label2>
+        <Input name="stat" value="4"
+          onChange={handleChange}
+          {...props}
+        />
+      </Wrapper2>
+      </center>
+    </Wrapper>
+  );
+};
 const FieldInputWebinar = ({ handleChange, label, ...props }) => {
   return (
     <Wrapper>
@@ -61,4 +98,4 @@ const FieldInputWebinar = ({ handleChange, label, ...props }) => {
     </Wrapper>
   );
 };
-export { FieldInput, FieldInputWorkshop, FieldInputWebinar }
+export { FieldInput, FieldInputWorkshop, FieldInputWorkshop2, FieldInputWebinar }

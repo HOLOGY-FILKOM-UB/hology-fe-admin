@@ -70,8 +70,8 @@ export const data = [
 const Capture = () => {
   const [role, setRole] = useContext(RolesContext)
   const temporaryRole = "CTF"
-  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924");
-  let roles = String(localStorage.getItem("h0_sd8h28jeas6das6d8ddf"));
+  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924sss");
+  let roles = String(localStorage.getItem("h0_sd8h28jeas6das6d8ddfsss"));
   const history = useHistory()
   useEffect(() => {
     if (parsedJsonData) {

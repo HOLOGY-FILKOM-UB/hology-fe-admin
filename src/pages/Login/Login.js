@@ -10,7 +10,7 @@ import CheckSession from "../../config/CheckSession";
 
 
 const Login = () => {
-  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924");
+  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924sss");
   const history = useHistory()
   useEffect(() => {
     if (parsedJsonData) {
@@ -46,9 +46,9 @@ const Login = () => {
 
   return (
     <Wrapper>
-      <Title>Competition Panel</Title>
+      <Title>Admin Panel</Title>
       <FieldInput label="Email" type="email" handleChange={e => setCredentials({ ...credentials, email: e.target.value })} />
-      <FieldInput label="Password" type="text" handleChange={(e) => setCredentials({ ...credentials, password: e.target.value })} />
+      <FieldInput label="Password" type="password" handleChange={(e) => setCredentials({ ...credentials, password: e.target.value })} />
       <Button content="Login" variant="primary" onClicked={e => { validateLogin() }} />
     </Wrapper>
   );

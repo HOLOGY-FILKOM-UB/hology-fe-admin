@@ -11,11 +11,12 @@ import Workshop from "../workshop/workshop";
 import { RolesContext } from "../../config/Auth";
 import CheckSession from "../../config/CheckSession";
 import { useHistory, Redirect } from "react-router";
+import Logout from "../Logout/Logout";
 
 
 
 const Admin = () => {
-  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924");
+  let parsedJsonData = localStorage.getItem("h0_s7yf8q7g398fh924sss");
   const history = useHistory()
   useEffect(() => {
     if (!parsedJsonData) {
@@ -34,6 +35,7 @@ const Admin = () => {
             <Route path="/uiux" component={Uiux} />
             <Route path="/webinar" component={Webinar} />
             <Route path="/workshop" component={Workshop} />
+            <Route path="/logout" component={Logout} />
           </Switch>
         </Wrapper>
     </>

@@ -21,4 +21,8 @@ export const NavbarData = [
     title: "Workshop",
     path: "/workshop"
   },
+  {
+    title: "Logout",
+    path: "/logout"
+  },
 ];
