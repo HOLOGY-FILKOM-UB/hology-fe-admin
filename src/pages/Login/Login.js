@@ -33,7 +33,6 @@ const Login = () => {
       .then(res => {
         console.log(res)
         setLogin(true)
-        setRole("Sekben")
         let jwtToken = res.data.message.token;
         StoreJwt(jwtToken);
         history.push('/')

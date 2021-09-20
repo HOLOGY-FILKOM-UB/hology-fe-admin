@@ -7,7 +7,6 @@ export const Wrapper = styled.div`
   padding-right: 2rem;
   width: 100%;
   min-width: 768px;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -44,6 +43,31 @@ export const Table = styled.table`
 
   tr:nth-child(2n+3) {
     background-color: #b283ff;
+    max-width: 1rem;
+  }
+`;
+
+export const Tables = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+  td, th {
+    border: 1px solid #000000;
+    padding: 0.3rem;
+    max-width: 1rem;
+    font-size: 14px;
+    text-align: center;
+    font-family: 'Open Sans';
+  }
+
+  tr:nth-child(1) {
+    background-color: transparent;
+    color: #000000;
+    max-width: 1rem;
+    text-align: center;
+  }
+
+  tr:nth-child(2n+3) {
+    background-color: #FFFFFF;
     max-width: 1rem;
   }
 `;

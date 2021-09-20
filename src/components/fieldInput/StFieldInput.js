@@ -6,7 +6,6 @@ export const Wrapper = styled.div`
   margin-bottom: 2rem;
 `;
 export const Wrapper2 = styled.div`
-  margin-bottom: 2rem;
   display:flex;
 `;
 

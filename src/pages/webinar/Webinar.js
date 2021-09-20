@@ -47,6 +47,8 @@ const Webinar = () => {
           <th>NAME</th>
           <th>EMAIL</th>
         </tr>
+
+        {console.log(rows)}
         {rows.map((item, index) => {
           return (
             <tr key={index}>
