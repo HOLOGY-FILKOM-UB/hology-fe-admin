@@ -221,9 +221,9 @@ const Capture = () => {
                     )
                   })}
                 </Tables>
-              </th>
+              </th>g
               <th>
-                {item.team_submiss === "" ? <p>TIM BELUM SUBMIT</p> : ProofDetector2("link", item.team_submiss.submission_link,  item.team_submiss.submission_file)}
+                {item.team_submiss === "" ? <p>TIM BELUM SUBMITa </p> : ProofDetector2("link", item.team_submiss.submission_link,  item.team_submiss.submission_file)}
  
               </th>
             </tr>
@@ -297,7 +297,7 @@ const Capture = () => {
       return (
         <div>
           <button onClick={e => { window.open(type1) }}>LINK</button>
-          <button onClick={e => { window.open("https://api.hology.my.id/payment/" + type2) }}>PROPOSAL</button>
+          <button onClick={e => { window.open("https://api.hology.my.id/proposal_uiux/" + type2) }}>PROPOSAL</button>
         </div>
       )
 
@@ -315,7 +315,7 @@ const Capture = () => {
       return (
         <div>
           <p>TIDAK ADA LINK</p>
-          <button onClick={e => { window.open("https://api.hology.my.id/payment/" + type2) }}>PROPOSAL</button>
+          <button onClick={e => { window.open("https://api.hology.my.id/proposal_uiux/" + type2) }}>PROPOSAL</button>
         </div>
       )
 
