@@ -221,9 +221,9 @@ const Capture = () => {
                     )
                   })}
                 </Tables>
-              </th>g
+              </th>
               <th>
-                {item.team_submiss === "" ? <p>TIM BELUM SUBMITa </p> : ProofDetector2("link", item.team_submiss.submission_link,  item.team_submiss.submission_file)}
+                {item.team_submiss === "" ? <p>TIM BELUM SUBMIT</p> : ProofDetector2("link", item.team_submiss.submission_link,  item.team_submiss.submission_file)}
  
               </th>
             </tr>
